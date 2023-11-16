@@ -30,11 +30,11 @@ const app = Vue.createApp({
         inStock() {
             return this.variants[this.selectedVariant].quantity
         },
-        sale() {
-            return this.variants[this.selectedVariant].onSale
-        },
         saleMessage() {
-            return this.brand + ' ' + this.product + ' is on sale'
+            if (this.variants[this.selectedVariant].onSale) {
+                return this.brand + ' ' + this.product + ' ' + this.variants[this.selectedVariant].color + ' is on sale.'
+            }
+            return ''
         }
     }
 })
